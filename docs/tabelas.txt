@@ -1,0 +1,28 @@
+Usuários - usuarios_tb
+    - usuID
+    - usuNome
+    - usuLogin
+    - usuSenha - sha1
+    - usuSituacao - 0: Trocar a senha, 1 - Liberado, 2 - Bloqueado, 3 - Inativo
+
+Veículos - veiculos_tb
+    - veiID
+    - veiUsuID
+    - veiPlaca
+    - veiMarca
+    - veiModelo
+    - veiDescricao
+    - veiAno
+    - veiSituacao
+
+Abastecimentos - abastecimentos_tb
+    - abaID
+    - abaUsuID
+    - abaPlaca
+    - abaDataHora
+    - abaCombustivel
+    - abaQuantidade
+    - abaValor
+    - abaKm
+    - abaPagamento
+    - abaObservacao
