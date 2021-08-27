@@ -11,13 +11,13 @@ class Veiculo
     {
         return array(
             'veiID' => 0,
-            'veiUsuID' => 0,
+            'veiUsuID' => $_SESSION['usuID'],
             'veiPlaca' => '',
             'veiMarca' => '',
             'veiModelo' => '',
             'veiDescricao' => '',
             'veiAno' => 0,
-            'veiSituacao' => 0
+            'veiSituacao' => 1
         );
     }
 

@@ -47,15 +47,6 @@ class Controller
         }
     }
 
-    public static function cadVeiculoAction($post, $get)
-    {
-        // Será chamada a tela de formulário de veículo
-        // Se no POST vier um ID, será para editar
-        $veiID = (isset($post['veiID'])) ? $post['veiID'] : 0;
-        $_SESSION['veiID'] = $veiID;
-        self::viewAction('cadVeiculo');
-    }
-
     public static function menuAction()
     {
         self::viewAction('menu');
@@ -66,14 +57,13 @@ class Controller
         self::viewAction('veiculos');
     }
 
-
     public static function homeAction()
     {
         header('Location: ' . DIR['home']);
         Exit;
     }
 
-    private static function viewAction(string $view, string $addGet = '')
+    protected static function viewAction(string $view, string $addGet = '')
     {
         $location = 'sistema.php';
         $_SESSION['view']   = $view;
