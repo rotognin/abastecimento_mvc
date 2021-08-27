@@ -22,6 +22,23 @@ class Veiculo
     }
 
     /**
+     * Realizar a validação dos dados
+     */
+    public static function validar($veiculo)
+    {
+        if ($veiculo['veiPlaca'] == ''){
+            $_SESSION['mensagem'] = 'A placa deve ser preenchida.';
+            return false;
+        }
+
+        // Demais campos...........
+
+
+        
+
+    }
+
+    /**
      * Carrega veículos de um usuário
      */
     public static function carregarVeiculos(int $usuID)
@@ -49,6 +66,22 @@ class Veiculo
         }
 
         return $result[0];
+    }
+
+    public static function gravar(array $veiculo)
+    {
+        $sql = 'INSERT INTO veiculos_tb (' .
+                'veiUsuID, veiPlaca, veiMarca, veiModelo, veiDescricao, veiAno, veiSituacao) ' .
+                'VALUES (:veiUsuID, :veiPlaca, :veiMarca, :veiModelo, :veiDescricao, :veiAno, :veiSituacao)';
+        $conn = Conexao::getConexao()->prepare($sql);
+        return $conn->execute(array(
+                        'veiUsuID'     => $veiculo['veiUsuID'],
+                        'veiPlaca'     => aspas(strtoupper($veiculo['veiPlaca'])),
+                        'veiMarca'     => aspas(strtoupper($veiculo['veiMarca'])),
+                        'veiModelo'    => aspas(strtoupper($veiculo['veiModelo'])),
+                        'veiDescricao' => aspas(strtoupper($veiculo['veiDescricao'])),
+                        'veiAno'       => $veiculo['veiAno'],
+                        'veiSituacao'  => $veiculo['veiSituacao']));
     }
 
     public static function getSituacao(int $veiSituacao)

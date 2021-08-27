@@ -12,6 +12,14 @@ if ($veiID > 0){
     $novo = false;
 }
 
+if (!isset($_SESSION['mensagem']))
+{
+    $_SESSION['mensagem'] = '';
+}
+
+$mensagem = $_SESSION['mensagem'];
+$_SESSION['mensagem'] = '';
+
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +33,7 @@ if ($veiID > 0){
     </div>
     <div class="w3-container w3-card-4 w3-margin">
         <p>
+        <?php include_once 'lib/mensagem.php'; ?>
             <form method="post" 
                   class="w3-container" 
                   action="principal.php?control=veiculo&action=<?php echo verdade($novo, 'gravarVeiculo', 'atualizarVeiculo'); ?>">

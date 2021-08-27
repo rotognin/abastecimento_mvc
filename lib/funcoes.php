@@ -8,3 +8,11 @@ function verdade(bool $valor, string $sim, string $nao)
 {
     return ($valor) ? $sim : $nao;
 }
+
+/**
+ * Insere aspas na string passada
+ */
+function aspas(string $valor)
+{
+    return '"' . $valor . '"';
+}

@@ -12,7 +12,7 @@ if (!isset($_SESSION['mensagem']))
 }
 
 $mensagem = $_SESSION['mensagem'];
-$_SESSION['mensagem'];
+$_SESSION['mensagem'] = '';
 
 ?>
 
