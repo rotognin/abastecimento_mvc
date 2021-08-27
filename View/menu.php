@@ -1,8 +1,6 @@
 <?php
 
-session_start();
-
-use Model;
+use Model as Model;
 
 $usuario = Model\Usuario::carregar($_SESSION['usuID']);
 if (!$usuario){
@@ -18,7 +16,6 @@ if (!$usuario){
 <?php include 'html' . DIRECTORY_SEPARATOR . 'head.php'; ?>
 <body>
     <?php include 'html' . DIRECTORY_SEPARATOR . 'menu.php'; ?>
-    <br>
     <div class="w3-container w3-card-4 w3-margin">
         <h3>Últimos abastecimentos:</h3>
         <p>

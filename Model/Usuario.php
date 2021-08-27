@@ -4,15 +4,16 @@ namespace Model;
 
 class Usuario
 {
-    public string $tabela = 'usuarios_tb';
-
-    private array $usuario = array(
-        'usuID'       => 0,
-        'usuNome'     => '',
-        'usuLogin'    => '',
-        'usuSenha'    => '',
-        'usuSituacao' => 0
-    );
+    public static function getArray()
+    {
+        return array(
+            'usuID'       => 0,
+            'usuNome'     => '',
+            'usuLogin'    => '',
+            'usuSenha'    => '',
+            'usuSituacao' => 0
+        );
+    }
 
     public static function carregar(int $usuID)
     {

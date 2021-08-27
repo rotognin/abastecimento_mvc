@@ -17,3 +17,5 @@ function autoload($class)
     include_once($class . '.php');
 }
 spl_autoload_register('autoload');
+
+require_once('funcoes.php');
