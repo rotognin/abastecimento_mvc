@@ -13,7 +13,7 @@ Veículos - veiculos_tb
     - veiModelo
     - veiDescricao
     - veiAno
-    - veiSituacao
+    - veiSituacao - 1 - Ativo, 2 - Inativo
 
 Abastecimentos - abastecimentos_tb
     - abaID

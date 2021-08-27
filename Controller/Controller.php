@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-use Model as Model;
+use Model;
 
 class Controller
 {
@@ -47,12 +47,17 @@ class Controller
         }
     }
 
+    public static function veiculosAction()
+    {
+        self::viewAction('veiculos');
+    }
+
+
     public static function homeAction()
     {
         header('Location: ' . DIR['home']);
         Exit;
     }
-
 
     private static function viewAction(string $view, string $addGet = '')
     {

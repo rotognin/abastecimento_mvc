@@ -22,34 +22,34 @@ class Usuario
         }
 
         $sql = 'SELECT * FROM usuarios_tb WHERE usuID = :usuID';
-        $preparado = Conexao::getConexao()->prepare($sql);
-        $preparado->execute(array('usuID' => $usuID));
-        $resultado = $preparado->fetchAll();
+        $conn = Conexao::getConexao()->prepare($sql);
+        $conn->execute(array('usuID' => $usuID));
+        $result = $conn->fetchAll();
 
-        if (empty($resultado)){
+        if (empty($result)){
             return false;
         }
 
-        return $resultado[0];
+        return $result[0];
     }
 
     public static function verificarLogin(string $usuLogin, string $usuSenha){
         $sql = 'SELECT * FROM usuarios_tb WHERE usuLogin = :usuLogin';
-        $preparado = Conexao::getConexao()->prepare($sql);
-        $preparado->execute(array('usuLogin' => $usuLogin));
-        $resultado = $preparado->fetchAll();
+        $conn = Conexao::getConexao()->prepare($sql);
+        $conn->execute(array('usuLogin' => $usuLogin));
+        $result = $conn->fetchAll();
 
-        if (empty($resultado)){
+        if (empty($result)){
             return false;
         }
 
         $usuSenhaSha1 = sha1($usuSenha);
 
-        if ($usuSenhaSha1 != $resultado[0]['usuSenha']){
+        if ($usuSenhaSha1 != $result[0]['usuSenha']){
             return false;
         }
 
-        return $resultado[0];
+        return $result[0];
     }
 
     
