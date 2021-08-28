@@ -20,9 +20,12 @@ Abastecimentos - abastecimentos_tb
     - abaUsuID
     - abaPlaca
     - abaDataHora
-    - abaCombustivel
+    - abaCombustivel - 1 - Gasolina, 2 - Etanol, 3 - Diesel, 
+                       4 - Gasolina Aditivada, 5 - Etanol Aditivado,
+                       6 - Gás (GNV)
     - abaQuantidade
     - abaValor
     - abaKm
-    - abaPagamento
+    - abaPagamento - 1 - Dinheiro, 2 - Débito, 3 - Crédito, 
+                     4 - Convênio, 5 - PIX, 6 - Promocional
     - abaObservacao

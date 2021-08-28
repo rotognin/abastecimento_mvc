@@ -52,9 +52,15 @@ class Veiculo
     /**
      * Carrega veículos de um usuário
      */
-    public static function carregarVeiculos(int $usuID)
+    public static function carregarVeiculos(int $usuID, int $veiSituacao = 0)
     {
-        $sql = 'SELECT * FROM veiculos_tb WHERE veiUsuID = :veiUsuID ORDER BY veiSituacao ASC';
+        $sql = 'SELECT * FROM veiculos_tb WHERE veiUsuID = :veiUsuID ';
+        
+        if ($veiSituacao > 0 && is_int($veiSituacao)){
+            $sql .= ' AND veiSituacao = ' . $veiSituacao;
+        }
+
+        $sql .= ' ORDER BY veiSituacao ASC';
         $conn = Conexao::getConexao()->prepare($sql);
         $conn->execute(array('veiUsuID' => $usuID));
         $result = $conn->fetchAll();

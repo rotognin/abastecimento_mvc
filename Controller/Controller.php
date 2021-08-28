@@ -6,7 +6,7 @@ use Model;
 
 class Controller
 {
-    public static function loginAction($post, $get)
+    public static function loginAction(array $post, array $get)
     {
         // Obter os dados para o login
         if ($post['login'] == '' || $post['senha'] == ''){

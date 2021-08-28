@@ -11,7 +11,7 @@ use Model;
 
 class veiculoController extends Controller
 {
-    public static function cadVeiculoAction($post, $get)
+    public static function cadVeiculoAction(array $post, array $get)
     {
         // Será chamada a tela de formulário de veículo
         // Se no POST vier um ID, será para editar o veículo
@@ -20,7 +20,7 @@ class veiculoController extends Controller
         parent::viewAction('cadVeiculo');
     }
 
-    public static function atualizarVeiculoAction($post, $get)
+    public static function atualizarVeiculoAction(array $post, array $get)
     {
         $veiculo = Model\Veiculo::getArray();
 
@@ -42,7 +42,7 @@ class veiculoController extends Controller
         }
     }
 
-    public static function gravarVeiculoAction($post, $get)
+    public static function gravarVeiculoAction(array $post, array $get)
     {
         $veiculo = Model\Veiculo::getArray();
         $post['veiID'] = 0;

@@ -11,4 +11,5 @@ $control = (isset($_GET['control'])) ? $_GET['control'] : '';
 $funcao = 'Controller\\' . $control . 'Controller::' . $action;
 
 call_user_func($funcao, $_POST, $_GET);
-//Controller\Controller::$action($_POST, $_GET);
+
+//Controller\Controller::$action($_POST, $_GET); - chamada antiga, para um único controlador
