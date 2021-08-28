@@ -27,15 +27,26 @@ class Veiculo
     public static function validar($veiculo)
     {
         if ($veiculo['veiPlaca'] == ''){
-            $_SESSION['mensagem'] = 'A placa deve ser preenchida.';
+            $_SESSION['mensagem'] = 'A Placa deve ser preenchida.';
             return false;
         }
 
-        // Demais campos...........
+        if ($veiculo['veiMarca'] == ''){
+            $_SESSION['mensagem'] = 'A Marca deve ser informada.';
+            return false;
+        }
 
+        if ($veiculo['veiModelo'] == ''){
+            $_SESSION['mensagem'] = 'O Modelo deve ser informado.';
+            return false;
+        }
 
-        
+        if ($veiculo['veiAno'] == 0){
+            $_SESSION['mensagem'] = 'O Ano deve ser informado.';
+            return false;
+        }
 
+        return true;
     }
 
     /**
@@ -75,13 +86,32 @@ class Veiculo
                 'VALUES (:veiUsuID, :veiPlaca, :veiMarca, :veiModelo, :veiDescricao, :veiAno, :veiSituacao)';
         $conn = Conexao::getConexao()->prepare($sql);
         return $conn->execute(array(
-                        'veiUsuID'     => $veiculo['veiUsuID'],
-                        'veiPlaca'     => aspas(strtoupper($veiculo['veiPlaca'])),
-                        'veiMarca'     => aspas(strtoupper($veiculo['veiMarca'])),
-                        'veiModelo'    => aspas(strtoupper($veiculo['veiModelo'])),
-                        'veiDescricao' => aspas(strtoupper($veiculo['veiDescricao'])),
-                        'veiAno'       => $veiculo['veiAno'],
-                        'veiSituacao'  => $veiculo['veiSituacao']));
+            'veiUsuID'     => $veiculo['veiUsuID'],
+            'veiPlaca'     => strtoupper($veiculo['veiPlaca']),
+            'veiMarca'     => strtoupper($veiculo['veiMarca']),
+            'veiModelo'    => strtoupper($veiculo['veiModelo']),
+            'veiDescricao' => strtoupper($veiculo['veiDescricao']),
+            'veiAno'       => $veiculo['veiAno'],
+            'veiSituacao'  => $veiculo['veiSituacao']
+        ));
+    }
+
+    public static function atualizar(array $veiculo)
+    {
+        $sql = 'UPDATE veiculos_tb SET veiPlaca = :veiPlaca, ' .
+               'veiMarca = :veiMarca, veiModelo = :veiModelo, veiDescricao = :veiDescricao, ' .
+               'veiAno = :veiAno, veiSituacao = :veiSituacao ' .
+               'WHERE veiID = :veiID';
+        $conn = Conexao::getConexao()->prepare($sql);
+        return $conn->execute(array(
+            'veiPlaca'     => strtoupper($veiculo['veiPlaca']),
+            'veiMarca'     => strtoupper($veiculo['veiMarca']),
+            'veiModelo'    => strtoupper($veiculo['veiModelo']),
+            'veiDescricao' => strtoupper($veiculo['veiDescricao']),
+            'veiAno'       => $veiculo['veiAno'],
+            'veiSituacao'  => $veiculo['veiSituacao'],
+            'veiID'        => $veiculo['veiID']
+        ));
     }
 
     public static function getSituacao(int $veiSituacao)

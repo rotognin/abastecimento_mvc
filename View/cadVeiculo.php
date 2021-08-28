@@ -29,6 +29,7 @@ $_SESSION['mensagem'] = '';
     <div class="w3-container w3-card-4 w3-margin">
         <h3><?php echo verdade($novo, 'Novo ', 'Editar '); ?>Veículo</h3>
         <a class="w3-button w3-blue" href="principal.php?action=menu">Início</a>
+        <a class="w3-button w3-blue" href="principal.php?action=veiculos">Veículos</a>
         <br><br>
     </div>
     <div class="w3-container w3-card-4 w3-margin">
@@ -38,33 +39,39 @@ $_SESSION['mensagem'] = '';
                   class="w3-container" 
                   action="principal.php?control=veiculo&action=<?php echo verdade($novo, 'gravarVeiculo', 'atualizarVeiculo'); ?>">
                 <label for="veiID">ID:</label>
-                <input type="text" id="veiID" name="veiID" value="<?php echo $veiculo['veiID']; ?>" disabled>
+                <input type="text" id="veiID" name="veiID" value="<?php echo $veiculo['veiID']; ?>" readonly>
                 <br><br>
+                <!-- Placa -->
                 <label for="veiPlaca">Placa:</label>
                 <input type="text" id="veiPlaca" 
-                       name="veiPlaca" value="<?php echo $veiculo['veiPlaca']; ?>" autofocus
+                       name="veiPlaca" value="<?php echo $veiculo['veiPlaca']; ?>" autofocus required 
                        size="10" style="text-transform:uppercase" maxlength="7">
                 <br><br>
+                <!-- Marca -->
                 <label for="veiMarca">Marca:</label>
                 <input type="text" id="veiMarca" 
-                       name="veiMarca" value="<?php echo $veiculo['veiMarca']; ?>"
+                       name="veiMarca" value="<?php echo $veiculo['veiMarca']; ?>" required 
                        style="text-transform:uppercase">
                 <br><br>
+                <!-- Modelo -->
                 <label for="veiModelo">Modelo:</label>
                 <input type="text" id="veiModelo" 
-                       name="veiModelo" value="<?php echo $veiculo['veiModelo']; ?>"
-                       style="text-transform:uppercase">
+                       name="veiModelo" value="<?php echo $veiculo['veiModelo']; ?>" required 
+                       style="text-transform:uppercase" size="50">
                 <br><br>
+                <!-- Ano -->
                 <label for="veiAno">Ano:</label>
                 <input type="number" id="veiAno" 
-                       name="veiAno" value="<?php echo $veiculo['veiAno']; ?>"
+                       name="veiAno" value="<?php echo $veiculo['veiAno']; ?>" required 
                        min="1950" max="2050">
                 <br><br>
+                <!-- Descrição -->
                 <label for="veiDescricao">Descrição:</label>
                 <input type="text" id="veiDescricao" 
                        name="veiDescricao" value="<?php echo $veiculo['veiDescricao']; ?>"
                        size="80" style="text-transform:uppercase">
                 <br><br>
+                <!-- Situação -->
                 <p>Situação:
                     <br>
                     <input type="radio" id="veiSituacaoAtivo" name="veiSituacao" value="1"

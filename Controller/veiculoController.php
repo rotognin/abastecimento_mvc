@@ -20,6 +20,28 @@ class veiculoController extends Controller
         parent::viewAction('cadVeiculo');
     }
 
+    public static function atualizarVeiculoAction($post, $get)
+    {
+        $veiculo = Model\Veiculo::getArray();
+
+        foreach($veiculo as $campo => $valor)
+        {
+            $veiculo[$campo] = $post[$campo];
+        }
+
+        if (!Model\Veiculo::validar($veiculo)){
+            parent::vireAction('cadVeiculo');
+            return;
+        }
+        
+        if (Model\Veiculo::atualizar($veiculo)){
+            parent::viewAction('veiculos');
+        } else {
+            $_SESSION['mensagem'] = 'Veículo não atualizado.';
+            parent::viewAction('cadVeiculo');
+        }
+    }
+
     public static function gravarVeiculoAction($post, $get)
     {
         $veiculo = Model\Veiculo::getArray();
@@ -30,7 +52,6 @@ class veiculoController extends Controller
             $veiculo[$campo] = $post[$campo];
         }
 
-        // Fazer as devidas validações...
         if (!Model\Veiculo::validar($veiculo)) {
             parent::viewAction('cadVeiculo');
             return;
@@ -44,11 +65,4 @@ class veiculoController extends Controller
         }
 
     }
-
-    public static function atualizarVeiculoAction($post, $get)
-    {
-
-    }
-
-
 }
