@@ -10,14 +10,14 @@ class Veiculo
     public static function getArray()
     {
         return array(
-            'veiID' => 0,
-            'veiUsuID' => $_SESSION['usuID'],
-            'veiPlaca' => '',
-            'veiMarca' => '',
-            'veiModelo' => '',
+            'veiID'        => 0,
+            'veiUsuID'     => $_SESSION['usuID'],
+            'veiPlaca'     => '',
+            'veiMarca'     => '',
+            'veiModelo'    => '',
             'veiDescricao' => '',
-            'veiAno' => 0,
-            'veiSituacao' => 1
+            'veiAno'       => 0,
+            'veiSituacao'  => 1
         );
     }
 

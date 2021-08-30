@@ -10,16 +10,16 @@ class Abastecimento
     public static function getArray()
     {
         return array(
-            'abaID' => 0,
-            'abaUsuID' => $_SESSION['usuID'], 
-            'abaPlaca' => '',
-            'abaDataHora' => '',
+            'abaID'          => 0,
+            'abaUsuID'       => $_SESSION['usuID'], 
+            'abaPlaca'       => '',
+            'abaDataHora'    => '',
             'abaCombustivel' => 0,
-            'abaQuantidade' => 0.00,
-            'abaValor' => 0.00,
-            'abaKm' => 0,
-            'abaPagamento' => 0,
-            'abaObservacao' => ''
+            'abaQuantidade'  => 0.00,
+            'abaValor'       => 0.00,
+            'abaKm'          => 0,
+            'abaPagamento'   => 0,
+            'abaObservacao'  => ''
         );
     }
 
@@ -42,6 +42,20 @@ class Abastecimento
             'abaPagamento'   => $abastecimento['abaPagamento'],
             'abaObservacao'  => strtoupper($abastecimento['abaObservacao'])
         ));
+    }
+
+    public static function ultimos(int $quantidade = 0)
+    {
+        $sql = 'SELECT * FROM abastecimentos_tb WHERE abaUsuID = :abaUsuID ' .
+               'ORDER BY aba_DataHora DESC ';
+
+        if ($quantidade > 0){
+            $sql .= 'LIMIT ' . $quantidade;
+        }
+
+        $conn = Conexao::getConexao()->prepare($sql);
+        $conn->execute(array('abaUsuID' => $_SESSION['usuID']));
+        return $conn->fetchAll();
     }
 
 

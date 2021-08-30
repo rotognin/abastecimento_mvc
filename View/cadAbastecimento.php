@@ -17,6 +17,10 @@ if (count($veiculos) == 0){
     $mensagem = 'Nenhum veículo cadastrado. Não será possível realizar o abastecimento.';
 }
 
+/* Quando criar o cadastro de combustíveis:
+$combustiveis = Model\Combustivel::carregar(1); // Apenas os ativos
+*/
+
 ?>
 
 <!DOCTYPE html>
@@ -59,12 +63,12 @@ if (count($veiculos) == 0){
                 <!-- Combustível -->
                 <label for="abaCombustivel">Combustível:</label>
                 <select class="w3-select" id="abaCombustivel" name="abaCombustivel">
-                    <option value="1">Gasolina</option>
-                    <option value="2">Etanol</option>
-                    <option value="3">Diesel</option>
-                    <option value="4">Gasolina Aditivada</option>
-                    <option value="5">Etanol Aditivado</option>
-                    <option value="6">Gás (GNV)</option>
+                <?php
+                    foreach($combustiveis as $codigo => $combustivel)    
+                    {
+                        echo '<option value="' . $codigo . '">' . $combustivel . '</option>';
+                    }
+                ?>
                 </select>
                 <br><br>
                 <!-- Quantidade -->
@@ -85,12 +89,12 @@ if (count($veiculos) == 0){
                 <!-- Forma de Pagamento -->
                 <label for="abaPagamento">Forma de Pagamento:</label>
                 <select class="w3-select" id="abaPagamento" name="abaPagamento">
-                    <option value="1">Dinheiro</option>
-                    <option value="2">Débito</option>
-                    <option value="3">Crédito</option>
-                    <option value="4">Convênio</option>
-                    <option value="5">PIX</option>
-                    <option value="6">Promocional</option>
+                <?php
+                    foreach($pagamentos as $codigo => $pagamento)
+                    {
+                        echo '<option value="' . $codigo . '">' . $pagamento . '</option>';
+                    }
+                ?>
                 </select>
                 <br><br>
                 <!-- Observações -->

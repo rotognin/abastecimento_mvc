@@ -9,6 +9,8 @@ if (!$usuario){
     Exit;
 }
 
+$ultimosAbastecimentos = Model\Abastecimento::ultimos(5);
+
 ?>
 
 <!DOCTYPE html>
@@ -20,11 +22,27 @@ if (!$usuario){
         <h3>Últimos abastecimentos:</h3>
         <p>
             <table class='w3-table w3-striped w3-bordered'>
-                <tr><th>Data</th><th>Veículo</th></tr>
-                <tr><td>01/02/2021 15:35</td><td>FXB-4585</td></tr>
-                <tr><td>02/02/2021 10:30</td><td>GTF-4005</td></tr>
-                <tr><td>15/02/2021 08:01</td><td>FXB-4585</td></tr>
-                <tr><td>17/02/2021 22:00</td><td>GTF-4005</td></tr>
+                <tr>
+                    <th>Veículo</th>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Km</th>
+                    <th>Combustível</th>
+                    <th>Valor Total</th>
+                </tr>
+                <?php
+                    foreach ($ultimosAbastecimentos as $abastecimento)
+                    {
+                        echo '<tr>';
+                        echo '<td>' . $$abastecimento['abaPlaca'] . '</td>';
+                        echo '<td>' . ajustarData($abastecimento['abaDataHora']) . '</td>';
+                        echo '<td>' . ajustarHora($abastecimento['abaDataHora']) . '</td>';
+                        echo '<td>' . $abastecimento['abaKm'] . '</td>';
+                        echo '<td>' . $combustiveis[$abastecimento['abaCombustivel']] . '</td>';
+                        echo '<td>R$ ' . $abastecimento['abaValor'] . '</td>';
+                        echo '</tr>';
+                    }
+                ?>
             </table>
         </p>
         <br>
