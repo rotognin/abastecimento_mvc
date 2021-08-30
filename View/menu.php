@@ -34,7 +34,7 @@ $ultimosAbastecimentos = Model\Abastecimento::ultimos(5);
                     foreach ($ultimosAbastecimentos as $abastecimento)
                     {
                         echo '<tr>';
-                        echo '<td>' . $$abastecimento['abaPlaca'] . '</td>';
+                        echo '<td>' . $abastecimento['abaPlaca'] . ' - ' . $abastecimento['veiModelo'] . '</td>';
                         echo '<td>' . ajustarData($abastecimento['abaDataHora']) . '</td>';
                         echo '<td>' . ajustarHora($abastecimento['abaDataHora']) . '</td>';
                         echo '<td>' . $abastecimento['abaKm'] . '</td>';

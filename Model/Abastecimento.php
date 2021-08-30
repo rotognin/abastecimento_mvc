@@ -46,8 +46,12 @@ class Abastecimento
 
     public static function ultimos(int $quantidade = 0)
     {
-        $sql = 'SELECT * FROM abastecimentos_tb WHERE abaUsuID = :abaUsuID ' .
-               'ORDER BY aba_DataHora DESC ';
+        $sql = 'SELECT a.abaPlaca, v.veiMarca, v.veiModelo, a.abaDataHora, ' . 
+               'a.abaKm, a.abaCombustivel, a.abaValor ' . 
+               'FROM abastecimentos_tb a ' . 
+               'LEFT JOIN veiculos_tb v ON a.abaPlaca = v.veiPlaca ' .
+               'WHERE a.abaUsuID = :abaUsuID ' .
+               'ORDER BY abaDataHora DESC ';
 
         if ($quantidade > 0){
             $sql .= 'LIMIT ' . $quantidade;
