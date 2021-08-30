@@ -30,6 +30,13 @@ $pagamentos = array(
     '6' => 'Promocional'
 );
 
+$ordenacoes = array(
+    '1' => 'Data e Hora',
+    '2' => 'Placa',
+    '3' => 'Combustível',
+    '4' => 'Forma de Pagamento'
+);
+
 function autoload($class)
 {   
     include_once($class . '.php');

@@ -4,6 +4,17 @@ namespace Controller;
 
 class relatorioController extends Controller
 {
+    public static function relPadraoAction()
+    {
+        parent::viewAction('relPadrao');
+    }
+
+    public static function relPadraoListarAction($post, $get)
+    {
+        parent::viewAction('relPadraoListar');
+    }
+
+    /*
     public static function relVeiculoAction()
     {
         parent::viewAction('relVeiculo');
@@ -18,4 +29,5 @@ class relatorioController extends Controller
     {
         parent::viewAction('relPagamento');
     }
+    */
 }
