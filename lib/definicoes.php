@@ -39,7 +39,8 @@ $ordenacoes = array(
 
 function autoload($class)
 {   
-    include_once($class . '.php');
+    $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
+    include_once($_SESSION['dir'] . $class . '.php');
 }
 spl_autoload_register('autoload');
 

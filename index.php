@@ -5,6 +5,7 @@ session_start();
 // Ao cair nessa página, se o usuário estiver logado, irá ser deslogado do sistema.
 $_SESSION['usuID'] = 0;
 $_SESSION['usuNome'] = '';
+$_SESSION['dir'] = __DIR__ . DIRECTORY_SEPARATOR;
 
 if (!isset($_SESSION['mensagem']))
 {
