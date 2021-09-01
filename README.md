@@ -1,9 +1,10 @@
-# Sistema simples de abastecimento
+# Sistema simples de abastecimento - v. 1
 
 Sistema para cadastro de abastecimentos de veículos, possibilitando vários usuários utilizarem com seus veículos.
 
 Utilizando o padrão MVC para facilitar a organização e manutenção do código.
 
-Esse sistema está online, disponível em rodrigotognin.com.br/abastecimento
+Esse código é a versão inicial do projeto de abastecimento que estou desenvolvendo, e não irá receber todas as alterações que estou fazendo no projeto. 
+A versão mais atual, com mais recursos e segurança está rodando no meu site, disponível [neste link](https://www.rodrigotognin.com.br/abastecimento).
 
-Para utilização, entre em contato: contato@rodrigotognin.com.br
+Para obter um acesso gratuito, por favor entre em contato: contato@rodrigotognin.com.br
