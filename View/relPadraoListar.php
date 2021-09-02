@@ -1,5 +1,7 @@
 <?php
 
+namespace View;
+
 use Model as Model;
 
 $parametros = unserialize($_SESSION['addGet']);

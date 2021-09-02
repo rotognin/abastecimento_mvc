@@ -26,10 +26,10 @@ $_SESSION['mensagem'] = '';
         <div class="w3-container">
             <p>
             <form method="post" class="w3-container" action="principal.php?action=login">
-                <label for="login">Login:</label>
+                <label for="login"><i class="fa fa-user"></i></label>
                 <input type="text" id="login" name="login" autofocus="autofocus">
                 <br><br>
-                <label for="senha">Senha:</label>
+                <label for="senha"><i class="fa fa-key"></i></label>
                 <input type="password" id="senha" name="senha">
                 <br><br>
                 <input type="submit" value="Entrar" class="w3-button w3-blue">

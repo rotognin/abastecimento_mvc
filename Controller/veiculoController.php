@@ -16,11 +16,21 @@ class veiculoController extends Controller
         // Será chamada a tela de formulário de veículo
         // Se no POST vier um ID, será para editar o veículo
         $veiID = (isset($post['veiID'])) ? $post['veiID'] : 0;
+
+        if ($veiID > 0){
+            if (!Model\Veiculo::veiculoUsuario($veiID)){
+                $_SESSION['mensagem'] = 'A placa não pertence ao seu usuário.';
+                parent::viewAction('veiculos');
+                return;
+            }
+        }
+
         $_SESSION['veiID'] = $veiID;
+
         parent::viewAction('cadVeiculo');
     }
 
-    public static function atualizarVeiculoAction(array $post, array $get)
+    private static function preencherArray(array $post)
     {
         $veiculo = Model\Veiculo::getArray();
 
@@ -28,6 +38,13 @@ class veiculoController extends Controller
         {
             $veiculo[$campo] = $post[$campo];
         }
+
+        return $veiculo;
+    }
+
+    public static function atualizarVeiculoAction(array $post, array $get)
+    {
+        $veiculo = self::preencherArray($post);
 
         if (!Model\Veiculo::validar($veiculo)){
             parent::vireAction('cadVeiculo');
@@ -44,13 +61,8 @@ class veiculoController extends Controller
 
     public static function gravarVeiculoAction(array $post, array $get)
     {
-        $veiculo = Model\Veiculo::getArray();
         $post['veiID'] = 0;
-
-        foreach ($veiculo as $campo => $valor)
-        {
-            $veiculo[$campo] = $post[$campo];
-        }
+        $veiculo = self::preencherArray($post);
 
         if (!Model\Veiculo::validar($veiculo)) {
             parent::viewAction('cadVeiculo');

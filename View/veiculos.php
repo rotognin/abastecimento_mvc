@@ -1,8 +1,18 @@
 <?php
 
+namespace View;
+
 use Model as Model;
 
 $veiculosUsu = Model\Veiculo::carregarVeiculos($usuID);
+
+if (!isset($_SESSION['mensagem']))
+{
+    $_SESSION['mensagem'] = '';
+}
+
+$mensagem = $_SESSION['mensagem'];
+$_SESSION['mensagem'] = '';
 
 ?>
 
@@ -17,7 +27,7 @@ $veiculosUsu = Model\Veiculo::carregarVeiculos($usuID);
         <br><br>
     </div>
     <div class="w3-container w3-card-4 w3-margin">
-
+        <?php include_once 'lib/mensagem.php'; ?>
         <h3>Veículos:</h3>
         <p>
             <table class='w3-table w3-striped w3-bordered'>
@@ -46,7 +56,7 @@ $veiculosUsu = Model\Veiculo::carregarVeiculos($usuID);
                            echo '<td>';
                               echo '<form method="post" action="principal.php?control=veiculo&action=cadVeiculo">';
                                  echo '<input type="hidden" name="veiID" value="' . $veiculo['veiID'] . '">';
-                                 echo '<input type="submit" value="Editar" class="w3-button w3-blue">';
+                                 echo '<input type="submit" value="Editar" class="w3-button w3-small w3-blue">';
                               echo '</form>';
                            echo '</td>';
                         echo '</tr>';

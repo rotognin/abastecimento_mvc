@@ -1,5 +1,7 @@
 <?php
 
+namespace View;
+
 use Model as Model;
 
 // Trazer os veículos do usuário logado (inclusive inativos)

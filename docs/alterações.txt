@@ -1,0 +1,13 @@
+** Pendente: Permitir a exclusão do abastecimento mais atual de cada placa.
+
+01/09/2021 - 09:15  ... Pendente
+    - View\menu.php - botão "Editar" nos abastecimentos listados
+    - Model\Abastecimento.php - Trazer o ID do abastecimento na consulta dos últimos, atualizar abastecimento alterado
+    - View\veiculos.php - Mensagem da sessão a ser exebida se necessário
+    - View\cadAbastecimento - Ajustado para edição de registros de abastecimento
+    - Controller\abastecimentoController.php - Adicionando a edição do abastecimento (...em desenvolvimento)
+    - Controller\veiculoController.php - Verificação se o ID do veículo pertence ao usuário logado
+    - Model\Veiculo.php - Checar se um ID de veículo pertence ao usuário logado
+    - index.php - Colocação de ícones no login
+    - html\head.php - Chamada à biblioteca do Fonts Awasome
+    - lib\font-awasome\ - Biblioteca adicionada para uso de ícones e fontes

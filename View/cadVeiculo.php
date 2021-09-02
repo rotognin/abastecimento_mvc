@@ -1,5 +1,7 @@
 <?php
 
+namespace View;
+
 use Model as Model;
 
 $veiID = (isset($_SESSION['veiID'])) ? $_SESSION['veiID'] : 0;
@@ -9,7 +11,12 @@ $novo = true;
 
 if ($veiID > 0){
     $veiculo = Model\Veiculo::carregarVeiculoUnico($veiID);
-    $novo = false;
+
+    if (!$veiculo){
+        $_SESSION['mensagem'] = 'Não foi possível carregar os dados do veículo.';
+    } else {
+        $novo = false;
+    }
 }
 
 if (!isset($_SESSION['mensagem']))

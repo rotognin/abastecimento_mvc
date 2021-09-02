@@ -1,5 +1,7 @@
 <?php
 
+namespace View;
+
 use Model as Model;
 
 $usuario = Model\Usuario::carregar($_SESSION['usuID']);
@@ -29,6 +31,7 @@ $ultimosAbastecimentos = Model\Abastecimento::ultimos(5);
                     <th>Km</th>
                     <th>Combustível</th>
                     <th>Valor Total</th>
+                    <th>Ação</th>
                 </tr>
                 <?php
                     foreach ($ultimosAbastecimentos as $abastecimento)
@@ -40,6 +43,12 @@ $ultimosAbastecimentos = Model\Abastecimento::ultimos(5);
                         echo '<td>' . $abastecimento['abaKm'] . '</td>';
                         echo '<td>' . $combustiveis[$abastecimento['abaCombustivel']] . '</td>';
                         echo '<td>R$ ' . $abastecimento['abaValor'] . '</td>';
+                        echo '<td>';
+                        echo '<form method="post" action="principal.php?control=abastecimento&action=cadAbastecimento">';
+                            echo '<input type="hidden" name="abaID" value="' . $abastecimento['abaID'] . '">';
+                            echo '<input type="submit" value="Editar" class="w3-button w3-small w3-blue">';
+                        echo '</form>';
+                        echo '</td>';
                         echo '</tr>';
                     }
                 ?>

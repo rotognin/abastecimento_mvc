@@ -75,7 +75,8 @@ class Veiculo
     {
         $sql = 'SELECT * FROM veiculos_tb WHERE veiID = :veiID';
         $conn = Conexao::getConexao()->prepare($sql);
-        $conn->execute(array('veiID' => $veiID));
+        $conn->bindValue('veiID', $veiID, \PDO::PARAM_INT);
+        $conn->execute();
         $result = $conn->fetchAll();
 
         if (empty($result)) {
@@ -83,6 +84,24 @@ class Veiculo
         }
 
         return $result[0];
+    }
+
+    /**
+     * Verificar se o veículo passado pertence ao usuário logado.
+     */
+    public static function veiculoUsuario(int $veiID)
+    {
+        if ($veiID == 0){
+            return false;
+        }
+
+        $result = self::carregarVeiculoUnico($veiID);
+
+        if (empty($result)){
+            return false;
+        }
+
+        return (int)$result['veiUsuID'] == (int)$_SESSION['usuID'];
     }
 
     public static function gravar(array $veiculo)
