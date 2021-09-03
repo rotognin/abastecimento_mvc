@@ -1,6 +1,6 @@
-** Pendente: Permitir a exclusão do abastecimento mais atual de cada placa.
 
-01/09/2021 - 09:15  ... Pendente
+
+02/09/2021 - 08:30  ... Atualizado
     - View\menu.php - botão "Editar" nos abastecimentos listados
     - Model\Abastecimento.php - Trazer o ID do abastecimento na consulta dos últimos, atualizar abastecimento alterado
     - View\veiculos.php - Mensagem da sessão a ser exebida se necessário

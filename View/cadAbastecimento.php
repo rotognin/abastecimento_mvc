@@ -3,6 +3,7 @@
 namespace View;
 
 use Model as Model;
+use Validacoes as Validacoes;
 
 $abaID = (isset($_SESSION['abaID'])) ? $_SESSION['abaID'] : 0;
 
@@ -113,7 +114,7 @@ $abaHora = substr($abastecimento['abaDataHora'], 11, 5);
                         echo '&nbsp;&nbsp;&nbsp;';
                         echo '<label for="abaValorUnitario">Valor Unitário: </label>';
                         echo '<input type="number" id="abaValorUnitario" name="abaValorUnitario" ';
-                        echo 'value="' . number_format((float)$abastecimento['abaValor'] / (float)$abastecimento['abaQuantidade'], 2, '.', '') . '" ';
+                        echo 'value="' . Validacoes\Calculos::valorUnitario($abastecimento['abaValor'], $abastecimento['abaQuantidade']) . '" ';
                         echo 'readonly>';
                     }
                 ?>

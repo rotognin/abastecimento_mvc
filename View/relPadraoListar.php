@@ -3,6 +3,7 @@
 namespace View;
 
 use Model as Model;
+use Validacoes as Validacoes;
 
 $parametros = unserialize($_SESSION['addGet']);
 $dados = Model\Relatorio::padrao($parametros);
@@ -39,7 +40,7 @@ $dados = Model\Relatorio::padrao($parametros);
                 echo '<td>' . ajustarHora($dado['abaDataHora']) . '</td>';
                 echo '<td>' . $dado['abaKm'] . '</td>';
                 echo '<td>' . $combustiveis[$dado['abaCombustivel']] . '</td>';
-                echo '<td>' . number_format((float)$dado['abaValor'] / (float)$dado['abaQuantidade'], 2, '.', '') . '</td>';
+                echo '<td>' . Validacoes\Calculos::valorUnitario($dado['abaValor'], $dado['abaQuantidade']) . '</td>';
                 echo '<td>' . $dado['abaQuantidade'] . '</td>';
                 echo '<td>' . $dado['abaValor'] . '</td>';
                 echo '<td>' . $pagamentos[$dado['abaPagamento']] . '</td>';
