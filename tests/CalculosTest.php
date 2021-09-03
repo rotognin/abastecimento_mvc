@@ -1,21 +1,19 @@
 <?php
 
+/**
+ * Utilizando um tutorial em https://www.devmedia.com.br/teste-unitario-com-phpunit/41231
+ */
+
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-
-class Calculos
-{
-    public static function valorUnitario(float $valorTotal, float $quantidade)
-    {
-        return number_format($valorTotal / $quantidade, 2, '.', '');
-    }
-}
+use Validacoes\Calculos;
 
 class CalculosTest extends TestCase
 {
     public function testValorUnitario()
     {
-        self::assertIsString(Calculos::valorUnitario(2, 2,00));
+        $valor = new Calculos();
+        $this->assertIsString($valor->valorUnitario(2, 2,00));
     }
 }
