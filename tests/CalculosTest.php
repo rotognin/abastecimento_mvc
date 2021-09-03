@@ -13,7 +13,6 @@ class CalculosTest extends TestCase
 {
     public function testValorUnitario()
     {
-        $valor = new Calculos();
-        $this->assertIsString($valor->valorUnitario(2, 2,00));
+        $this->assertIsString(Calculos::valorUnitario(2, 2,00));
     }
 }
