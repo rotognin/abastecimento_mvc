@@ -21,7 +21,7 @@ $ultimosAbastecimentos = Model\Abastecimento::ultimos(5);
 <body>
     <?php include 'html' . DIRECTORY_SEPARATOR . 'menu.php'; ?>
     <div class="w3-container w3-card-4">
-        <h3>Últimos abastecimentos:</h3>
+        <h3>Últimos 5 abastecimentos:</h3>
         <table class='w3-table w3-striped w3-bordered'>
             <tr>
                 <th>Veículo</th>
@@ -51,6 +51,48 @@ $ultimosAbastecimentos = Model\Abastecimento::ultimos(5);
                     echo '</tr>';
                 }
             ?>
+        </table>
+        <br>
+    </div>
+    <div class="w3-container w3-card-4">
+        <h3>Total dos últimos 6 meses por veículo:</h3>
+        <table class='w3-table w3-striped w3-bordered'>
+            <tr>
+                <th>Veículo</th>
+                <th>Março/2021</th>
+                <th>Abril/2021</th>
+                <th>Maio/2021</th>
+                <th>Junho/2021</th>
+                <th>Julho/2021</th>
+                <th>Agosto/2021</th>
+            </tr>
+            <tr>
+                <td>GBR8855 - A4 AVANT 3.2 TFSI</td>
+                <td>R$ 300,00</td>
+                <td>R$ 250,14</td>
+                <td>R$ 291,34</td>
+                <td>R$ 270,01</td>
+                <td>R$ 301,25</td>
+                <td>R$ 303,95</td>
+            </tr>
+            <tr>
+                <td>FXB8666 - GOL 1.0 TREND</td>
+                <td>R$ 50,00</td>
+                <td>R$ 50,14</td>
+                <td>R$ 91,34</td>
+                <td>R$ 70,01</td>
+                <td>R$ 101,25</td>
+                <td>R$ 43,95</td>
+            </tr>
+            <tr>
+                <td>BTS3454 - FIESTA</td>
+                <td>R$ 30,00</td>
+                <td>R$ 20,14</td>
+                <td>R$ 21,34</td>
+                <td>R$ 20,01</td>
+                <td>R$ 31,25</td>
+                <td>R$ 33,95</td>
+            </tr>
         </table>
         <br>
     </div>
