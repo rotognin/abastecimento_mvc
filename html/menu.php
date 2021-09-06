@@ -1,4 +1,4 @@
-    <div class="w3-container w3-card-4 w3-margin">
+    <div class="w3-container w3-card-4">
         <h3>Sistema de abastecimentos</h3>
         <p>Olá, <?php echo $_SESSION['usuNome']; ?></p>
         <a class="w3-button w3-blue" href="principal.php?action=veiculos">Veículos</a>
