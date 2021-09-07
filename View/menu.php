@@ -15,6 +15,8 @@ if (!$usuario){
 $ultimosAbastecimentos = Model\Abastecimento::ultimos(5);
 $aVeiculos = Model\Veiculo::carregarVeiculos($usuario, 1);
 
+// **** Montar em "funcoes.php" ****
+
 // Descobrir os últimos 6 meses, incluindo o atual
 $iMesAtual    = (int)date('m');
 $iPrimeiroMes = ($iMesAtual > 5) ? $iMesAtual - 5 : $iMesAtual + 7;
@@ -25,7 +27,7 @@ $a6Meses = array();
 for ($iMes = $iPrimeiroMes; $iMes != $iMesAtual; $iMes++)
 {
     if ($iMes == 13) { $iMes = 1; $iAno++; }
-    
+
     $dataInicio = $iAno . '/' . $iMes . '/01';
     $dataFim    = $iAno. '/' . $iMes . '/' . Calculos::ultimoDia($mes, $ano);
 

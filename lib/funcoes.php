@@ -36,3 +36,7 @@ function ajustarHora(string $dataHoraOrigem)
     $hora     = explode(':', $dataHora[1]);
     return $hora[0] . ':' . $hora[1];
 }
+
+/**
+ * Montar um array com os últimos x meses (Pegar o código em "menu.php")
+ */
