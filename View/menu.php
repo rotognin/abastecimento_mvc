@@ -3,6 +3,7 @@
 namespace View;
 
 use Model as Model;
+use Validacoes\Calculos;
 
 $usuario = Model\Usuario::carregar($_SESSION['usuID']);
 if (!$usuario){
@@ -12,6 +13,24 @@ if (!$usuario){
 }
 
 $ultimosAbastecimentos = Model\Abastecimento::ultimos(5);
+$aVeiculos = Model\Veiculo::carregarVeiculos($usuario, 1);
+
+// Descobrir os últimos 6 meses, incluindo o atual
+$iMesAtual    = (int)date('m');
+$iPrimeiroMes = ($iMesAtual > 5) ? $iMesAtual - 5 : $iMesAtual + 7;
+$iAno         = ($iMesAtual > 5) ? (int)date('Y') : (int)date('Y') - 1;
+
+$a6Meses = array();
+
+for ($iMes = $iPrimeiroMes; $iMes != $iMesAtual; $iMes++)
+{
+    if ($iMes == 13) { $iMes = 1; $iAno++; }
+    
+    $dataInicio = $iAno . '/' . $iMes . '/01';
+    $dataFim    = $iAno. '/' . $iMes . '/' . Calculos::ultimoDia($mes, $ano);
+
+    $a6Meses[] = array($dataInicio, $dataFim);
+}
 
 ?>
 
