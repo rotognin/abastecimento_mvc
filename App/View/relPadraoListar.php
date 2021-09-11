@@ -1,8 +1,8 @@
 <?php
 
-namespace View;
+namespace App\View;
 
-use Model as Model;
+use App\Model as Model;
 use Validacoes as Validacoes;
 
 $parametros = unserialize($_SESSION['addGet']);

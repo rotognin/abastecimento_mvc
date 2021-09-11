@@ -1,8 +1,8 @@
 <?php
 
-namespace View;
+namespace App\View;
 
-use Model as Model;
+use App\Model as Model;
 
 // Trazer os veículos do usuário logado (inclusive inativos)
 $veiculos = Model\Veiculo::carregarVeiculos($usuID);

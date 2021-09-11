@@ -1,8 +1,8 @@
 <?php
 
-namespace Controller;
+namespace App\Controller;
 
-use Model;
+use App\Model;
 
 /**
  * Essa classe está herdando o Controller original para poder chamar

@@ -1,8 +1,8 @@
 <?php
 
-namespace View;
+namespace App\View;
 
-use Model as Model;
+use App\Model as Model;
 
 $veiculosUsu = Model\Veiculo::carregarVeiculos($usuID);
 

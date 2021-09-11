@@ -1,8 +1,8 @@
 <?php
 
-namespace View;
+namespace App\View;
 
-use Model as Model;
+use App\Model as Model;
 
 $veiID = (isset($_SESSION['veiID'])) ? $_SESSION['veiID'] : 0;
 

@@ -1,4 +1,5 @@
-
+11/09/2021 - 11:41
+    - Alterei toda a estrutura das pastas MVC para dentro de APP para uma melhor organização
 
 02/09/2021 - 08:30  ... Atualizado
     - View\menu.php - botão "Editar" nos abastecimentos listados

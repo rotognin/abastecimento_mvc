@@ -4,9 +4,9 @@ header('Content-Type: text/html; charset=utf-8');
 date_default_timezone_set('America/Sao_Paulo');
 
 define('DS', DIRECTORY_SEPARATOR);
-define('DIR', array('controller' => 'Controller' . DS,
-                    'model'      => 'Model' . DS,
-                    'view'       => 'View' . DS,
+define('DIR', array('controller' => 'App' . DS . 'Controller' . DS,
+                    'model'      => 'App' . DS . 'Model' . DS,
+                    'view'       => 'App' . DS . 'View' . DS,
                     'home'       => 'index.php',
                     'log'        => 'log' . DS . 'log.txt'
                    )
